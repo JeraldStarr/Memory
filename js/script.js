@@ -3,7 +3,6 @@ import { cards } from './data.js';
 
 board.create();
 const boardHTML = document.querySelector(".board");
-let howManyCards = 0;
 let oneVisible = false;
 let turnCounter = 0;
 let visibleNr;
