@@ -35,7 +35,7 @@ p {
     width: 125px;
     height: 125px;
     display: inline-block;
-    background-image: url("img/karta.png");
+    background-image: url("img/card.png");
     border: 4px solid #E9B64A;
     border-radius: 4px;
     cursor: default;
@@ -46,7 +46,7 @@ p {
     width: 125px;
     height: 125px;
     display: inline-block;
-    background-image: url("img/karta.png");
+    background-image: url("img/card.png");
     border: 4px solid #51C8b2;
     border-radius: 4px;
     cursor: pointer;
