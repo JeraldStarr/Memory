@@ -8,6 +8,7 @@ const card = {
     visibleNr: null,
     turnCounter: 0,
     pairsLeft: 6,
+    notRevealedCardAppereance: 'url("img/card.png")',
     revealCard(id) {
         let nr = id.substr(1)
         let opacityValue = this.isTransparent(nr);
