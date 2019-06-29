@@ -1,7 +1,6 @@
 import board from './Board.js';
-import { cards } from './data.js';
 
-board.create();
+const cards = board.create();
 const boardHTML = document.querySelector(".board");
 let oneVisible = false;
 let turnCounter = 0;
