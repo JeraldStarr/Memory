@@ -19,7 +19,7 @@ const card = {
                 this.visibleNr = nr;
                 this.lock = false;
             } else {
-                this.checkIfCardsImageAreTheSame(nr);
+                this.checkIfCardsImagesAreTheSame(nr);
                 this.increaseTurnCounterValue();
                 this.oneVisible = false;
             }
@@ -39,7 +39,7 @@ const card = {
     isTransparent(nr) {
         return $(`#c${nr}`).css("opacity");
     },
-    checkIfCardsImageAreTheSame(nr) {
+    checkIfCardsImagesAreTheSame(nr) {
         if (this.cards[this.visibleNr] === this.cards[nr]) {
             setTimeout(() => {
                 this.hide2Cards(nr, this.visibleNr);
