@@ -1,3 +1,3 @@
-import card from './Card.js';
+import card from './modules/Card.js';
 
 card.handleClick();

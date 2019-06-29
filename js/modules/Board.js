@@ -1,5 +1,5 @@
-import { cards } from './data.js';
-import { boardSize } from './data.js';
+import { cards } from '../data.js';
+import { boardSize } from '../data.js';
 const board = {
     create() {
         const $board = $('.board');

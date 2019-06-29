@@ -8,16 +8,12 @@ const card = {
     visibleNr: null,
     turnCounter: 0,
     pairsLeft: 6,
-    notRevealedCardAppereance: 'url("img/card.png")',
     revealCard(id) {
         let nr = id.substr(1)
         let opacityValue = this.isTransparent(nr);
         if (opacityValue !== 0 && !this.lock) {
             this.lock = true;
-            let picture = `url(img/${this.cards[nr]})`;
-            $("#c" + nr).css("background-image", picture);
-            $("#c" + nr).addClass("cardA");
-            $("#c" + nr).removeClass("card");
+            this.handleCorrectReveal(nr, `url(img/${this.cards[nr]})`);
             if (!this.oneVisible) {
                 this.oneVisible = true;
                 this.visibleNr = nr;
@@ -59,18 +55,23 @@ const card = {
         $(".score").html(`Turn counter: ${this.turnCounter}`);
     },
     setDefaultBackground(nr1, nr2) {
-        this.setCSS(nr1, nr2);
+        this.handleNotCorrectReveal(nr1, nr2);
         this.lock = false;
     },
-    setCSS(nr1, nr2) {
+    handleNotCorrectReveal(nr1, nr2, notReveledCard = 'url("img/card.png")') {
         $("#c" + nr1)
-            .css("background-image", 'url("img/card.png")')
+            .css("background-image", notReveledCard)
             .addClass("card")
             .removeClass("cardA");
         $("#c" + nr2)
-            .css("background-image", 'url("img/card.png")')
+            .css("background-image", notReveledCard)
             .addClass("card")
             .removeClass("cardA");
+    },
+    handleCorrectReveal(nr, picture) {
+        $("#c" + nr).css("background-image", picture);
+        $("#c" + nr).addClass("cardA");
+        $("#c" + nr).removeClass("card");
     },
     hide2Cards(nr1, nr2) {
         $(`#c${nr1}`).css("opacity", 0);
