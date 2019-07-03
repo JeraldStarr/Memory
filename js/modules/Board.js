@@ -1,14 +1,12 @@
 import { cards } from '../data.js';
-import { boardSize } from '../data.js';
 const board = {
+    boardSize: 12,
     create() {
         const $board = $('.board');
-        for (let i = 0; i < boardSize; i++) {
+        for (let i = 0; i < this.boardSize; i++) {
             $board.append(`<div class="card" id="c${i}"></div>`);
-            if (i === boardSize - 1) {
-                this.createTurnCounter($board);
-            }
         }
+        this.createTurnCounter($board);
         return this.mixImages();
     },
     createTurnCounter($board) {
@@ -16,7 +14,7 @@ const board = {
     },
     mixImages() {
         const drawnCards = [];
-        while (cards.length > 0) {          
+        while (cards.length > 0) {
             const splicedCard = cards.splice(Math.floor(Math.random() * cards.length), 1);
             drawnCards.push(splicedCard[0]);
         }
