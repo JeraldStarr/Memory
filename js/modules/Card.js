@@ -13,7 +13,7 @@ const card = {
         let opacityValue = this.isTransparent(nr);
         if (opacityValue !== 0 && !this.lock) {
             this.lock = true;
-            this.handleCorrectReveal(nr, `url(img/${this.cards[nr]})`);
+            this.checkReveal(nr, `url(img/${this.cards[nr]})`);
             if (!this.oneVisible) {
                 this.oneVisible = true;
                 this.visibleNr = nr;
@@ -24,7 +24,7 @@ const card = {
                 this.oneVisible = false;
             }
         }
-    
+
     },
     handleClick() {
         const boardHTML = document.querySelector(".board");
@@ -68,17 +68,21 @@ const card = {
             .addClass("card")
             .removeClass("cardA");
     },
-    handleCorrectReveal(nr, picture) {
+    checkReveal(nr, picture) {
         $("#c" + nr).css("background-image", picture);
-        $("#c" + nr).addClass("cardA");
-        $("#c" + nr).removeClass("card");
+        this.changeBorder(nr);
     },
     hide2Cards(nr1, nr2) {
         $(`#c${nr1}`).css("opacity", 0);
         $(`#c${nr2}`).css("opacity", 0);
         this.pairsLeft--;
-        message.showVictory(this.pairsLeft, this.turnCounter);
+        if (this.pairsLeft === 0) {
+            message.showVictory(this.turnCounter);
+        }
         this.lock = false;
+    },
+    changeBorder(card) {
+        $(`#c${card}`).toggleClass("cardA card");
     }
 }
 export default card;
