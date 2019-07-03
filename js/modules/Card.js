@@ -58,15 +58,9 @@ const card = {
         this.handleNotCorrectReveal(nr1, nr2);
         this.lock = false;
     },
-    handleNotCorrectReveal(nr1, nr2, notReveledCard = 'url("img/card.png")') {
-        $("#c" + nr1)
-            .css("background-image", notReveledCard)
-            .addClass("card")
-            .removeClass("cardA");
-        $("#c" + nr2)
-            .css("background-image", notReveledCard)
-            .addClass("card")
-            .removeClass("cardA");
+    handleNotCorrectReveal(nr1, nr2) {
+        this.restoreReverse($(`#c${nr1}`));
+        this.restoreReverse($(`#c${nr2}`));
     },
     checkReveal(nr, picture) {
         $("#c" + nr).css("background-image", picture);
@@ -83,6 +77,12 @@ const card = {
     },
     changeBorder(card) {
         $(`#c${card}`).toggleClass("cardA card");
+    },
+    restoreReverse(card) {
+        card
+            .css("background-image", 'url("img/card.png")')
+            .addClass("card")
+            .removeClass("cardA");
     }
 }
 export default card;
