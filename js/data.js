@@ -12,5 +12,3 @@ export const cards = [
     "janIIIsobieski.png",
     "kazimierz_jagiellonczyk.png"
 ];
-
-export const boardSize = 12;
