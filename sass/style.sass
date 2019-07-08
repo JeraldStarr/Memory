@@ -1,0 +1,43 @@
+@import 'variables'
+@import 'mixins'
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+body 
+    background-color: #26262E
+    color: $accent
+    font-family: 'Lobster', sans-serif
+    font-size: 28px
+    h1 
+        font-size: 64px
+        font-weight: 400
+        text-align: $position
+        letter-spacing: 5px
+        margin-top: 20px
+    .board 
+        width: 600px
+        margin-left: auto
+        margin-right: auto
+        text-align: $position
+        .cardA 
+            +cardsStyle
+            border: $borderBrightColour
+            cursor: default
+            filter: brightness(100%)
+        .card 
+            +cardsStyle
+            border: $borderDarkColour
+            cursor: pointer
+            filter: brightness(70%)
+            &:hover 
+                border: $borderBrightColour
+                filter: brightness(100%)
+p 
+    text-align: $position
+    margin-top: 5px
+    margin-bottom: 25px
+    letter-spacing: 2px
+.score 
+    margin-top: 5px
+    letter-spacing: 2px
