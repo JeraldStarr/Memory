@@ -6,30 +6,65 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100vw;
+  height: 100vh;
   background-color: #26262E;
   color: #209781;
   font-family: 'Lobster', sans-serif;
   font-size: 28px;
 }
 
-body h1 {
+body header {
   font-size: 64px;
   font-weight: 400;
   text-align: center;
   letter-spacing: 5px;
-  margin-top: 20px;
 }
 
-body .board {
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+@media (max-width: 800px) {
+  body header {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  body header {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 800px) {
+  body main {
+    width: 100vw;
+  }
+}
+
+body main .board {
+  width: 55vw;
   text-align: center;
 }
 
-body .board .activeCard {
-  width: 125px;
-  height: 125px;
+@media (max-width: 800px) {
+  body main .board {
+    width: 100vw;
+  }
+}
+
+body main .board .activeCard {
+  width: 13vw;
+  height: 13vw;
   display: inline-block;
   background-image: url("../img/card.png");
   border-radius: 4px;
@@ -39,11 +74,20 @@ body .board .activeCard {
   cursor: default;
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-body .board .card {
-  width: 125px;
-  height: 125px;
+@media (max-width: 800px) {
+  body main .board .activeCard {
+    height: 22vw;
+    width: 22vw;
+  }
+}
+
+body main .board .card {
+  width: 13vw;
+  height: 13vw;
   display: inline-block;
   background-image: url("../img/card.png");
   border-radius: 4px;
@@ -53,22 +97,26 @@ body .board .card {
   cursor: pointer;
   -webkit-filter: brightness(70%);
           filter: brightness(70%);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-body .board .card:hover {
+@media (max-width: 800px) {
+  body main .board .card {
+    height: 22vw;
+    width: 22vw;
+  }
+}
+
+body main .board .card:hover {
   border: 4px solid #E9B64A;
   -webkit-filter: brightness(100%);
           filter: brightness(100%);
 }
 
-p {
-  text-align: center;
-  margin-top: 5px;
-  margin-bottom: 25px;
-  letter-spacing: 2px;
-}
-
 .score {
+  -ms-flex-preferred-size: 100px;
+      flex-basis: 100px;
   margin-top: 5px;
   letter-spacing: 2px;
 }
