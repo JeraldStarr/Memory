@@ -1,6 +1,7 @@
 import { picturesNames } from '../data.js';
 const table = {
-    boardSize: 12,
+    boardSize: picturesNames.length,
+    pairsLeft: picturesNames / 2,
     turnCounter: 0,
     createCardsView() {
         const $board = $('.board');
@@ -15,12 +16,18 @@ const table = {
     },
     mixImages() {
         const drawnCards = [];
-        while (cards.length > 0) {
-            const splicedCard = picturesNames.splice(Math.floor(Math.random() * cards.length), 1);
+        while (picturesNames.length > 0) {
+            const splicedCard = picturesNames.splice(Math.floor(Math.random() * picturesNames.length), 1);
             drawnCards.push(splicedCard[0]);
         }
         return drawnCards;
-    }
+    },
+    decrementPairsNumber() {
+        this.pairsLeft--;
+    },
+    showTurnCounterValue() {
+        $(".score").html(`Turn counter: ${this.turnCounter}`);
+    },
 }
 
 export default table;
