@@ -1,39 +1,38 @@
-import table from './Table.js';
+import game from './Game.js';
 import message from './Message.js';
 
 const board = {
-    cards: table.createCardsView(),
+    cards: game.createCardsView(),
     lock: false,
-    oneVisible: false,
-    visibleNr: null,
-    pairsLeft: table.boardSize / 2,
+    oneCardIsVisible: false,
+    VisibleCardPictureIndex: null,
     revealCard(id) {
         let nr = id.substr(1)
-        let opacityValue = this.isTransparent(nr);
+        let opacityValue = this.getOpacityValue(nr);
         if (opacityValue !== 0 && !this.lock) {
             this.lock = true;
             this.showRevealedCard(nr, `url(img/${this.cards[nr]})`);
-            if (!this.oneVisible) {
-                this.oneVisible = true;
-                this.visibleNr = nr;
+            if (!this.oneCardIsVisible) {
+                this.oneCardIsVisible = true;
+                this.VisibleCardPictureIndex = nr;
                 this.lock = false;
             } else {
                 if (this.AreCardsImagesTheSame(nr)) {
                     setTimeout(() => {
-                        this.hide2Cards(nr, this.visibleNr);
-                        this.decrementPairsNumber();
+                        this.hide2Cards(nr, this.VisibleCardPictureIndex);
+                        game.decrementPairsNumber();
                         if (this.noCardsLeft()) {
-                            message.showVictory(table.turnCounter);
+                            message.showVictory(game.turnCounter);
                         };
                         this.lock = false;
                     }, 750);
                 } else {
                     setTimeout(() => {
-                        this.setDefaultBackground(nr, this.visibleNr);
+                        this.returnCardPictureDown(nr, this.VisibleCardPictureIndex);
                     }, 1000);
                 }
                 this.increaseTurnCounterValue();
-                this.oneVisible = false;
+                this.oneCardIsVisible = false;
             }
         }
 
@@ -48,52 +47,49 @@ const board = {
             }
         });
     },
-    isTransparent(nr) {
-        return $(`#c${nr}`).css("opacity");
+    getOpacityValue(nr) {
+        return $(this.getCard(nr)).css("opacity");
     },
     AreCardsImagesTheSame(nr) {
-        return this.cards[this.visibleNr] === this.cards[nr]
+        return this.cards[this.VisibleCardPictureIndex] === this.cards[nr]
     },
     increaseTurnCounterValue() {
-        table.turnCounter++;
-        this.showTurnCounterValue();
+        game.turnCounter++;
+        game.showTurnCounterValue();
     },
-    showTurnCounterValue() {
-        $(".score").html(`Turn counter: ${table.turnCounter}`);
-    },
-    setDefaultBackground(nr1, nr2) {
-        this.handleNotCorrectReveal(nr1, nr2);
+    returnCardPictureDown(nr1, nr2) {
+        this.handleTwoNotSameCardsReveal(nr1, nr2);
         this.lock = false;
     },
-    handleNotCorrectReveal(nr1, nr2) {
+    handleTwoNotSameCardsReveal(nr1, nr2) {
         this.restoreReverse(nr1);
         this.restoreReverse(nr2);
     },
     showRevealedCard(nr, picture) {
         this.showCardPicture(nr, picture);
-        this.changeBorder(nr);
+        this.changeCardBorder(nr);
     },
     hide2Cards(nr1, nr2) {
-        $(`#c${nr1}`).css("opacity", 0);
-        $(`#c${nr2}`).css("opacity", 0);
+        $(this.getCard(nr1)).css("opacity", 0);
+        $(this.getCard(nr2)).css("opacity", 0);
     },
     showCardPicture(nr, picture) {
-        $(`#c${nr}`).css("background-image", picture);
+        $(this.getCard(nr)).css("background-image", picture);
     },
-    changeBorder(card) {
-        $(`#c${card}`).toggleClass("cardA card");
+    changeCardBorder(card) {
+        $(this.getCard(card)).toggleClass("activeCard card");
     },
     restoreReverse(nr) {
-        $(`#c${nr}`)
+        $(this.getCard(nr))
             .css("background-image", 'url("img/card.png")')
             .addClass("card")
-            .removeClass("cardA");
+            .removeClass("activeCard");
     },
     noCardsLeft() {
         return this.pairsLeft === 0;
     },
-    decrementPairsNumber() {
-        this.pairsLeft--;
+    getCard(idNumber) {
+        return `#c${idNumber}`;
     }
 }
 export default board;

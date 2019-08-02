@@ -27,7 +27,7 @@ body .board {
   text-align: center;
 }
 
-body .board .cardA {
+body .board .activeCard {
   width: 125px;
   height: 125px;
   display: inline-block;

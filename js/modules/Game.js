@@ -1,6 +1,7 @@
 import { picturesNames } from '../data.js';
 const table = {
-    boardSize: 12,
+    boardSize: picturesNames.length,
+    pairsLeft: picturesNames / 2,
     turnCounter: 0,
     createCardsView() {
         const $board = $('.board');
@@ -20,7 +21,13 @@ const table = {
             drawnCards.push(splicedCard[0]);
         }
         return drawnCards;
-    }
+    },
+    decrementPairsNumber() {
+        this.pairsLeft--;
+    },
+    showTurnCounterValue() {
+        $(".score").html(`Turn counter: ${this.turnCounter}`);
+    },
 }
 
 export default table;
