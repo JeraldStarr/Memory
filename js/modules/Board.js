@@ -38,14 +38,10 @@ const board = {
 
     },
     handleClick() {
-        const boardHTML = document.querySelector(".board");
-        boardHTML.childNodes.forEach(card => {
-            if (card.id) {
-                card.addEventListener("click", () => {
-                    this.revealCard(card.id);
-                });
-            }
-        });
+        let global = this;
+        $(".card").on("click", function() {
+            global.revealCard(this.id);
+        })
     },
     getOpacityValue(nr) {
         return $(this.getCard(nr)).css("opacity");
