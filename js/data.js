@@ -1,4 +1,4 @@
-export const cards = [
+export const picturesNames = [
     "janIIIsobieski.png",
     "janIIIsobieski.png",
     "kazimierz_wielki.png",
