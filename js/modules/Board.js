@@ -82,7 +82,9 @@ const board = {
             .removeClass("activeCard");
     },
     noCardsLeft() {
-        return this.pairsLeft === 0;
+        console.log(game.pairsLeft);
+        console.log(game.pairsLeft === 0);
+        return game.pairsLeft === 0;
     },
     getCard(idNumber) {
         return `#c${idNumber}`;

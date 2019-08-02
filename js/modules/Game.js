@@ -1,7 +1,7 @@
 import { picturesNames } from '../data.js';
 const table = {
     boardSize: picturesNames.length,
-    pairsLeft: picturesNames / 2,
+    pairsLeft: picturesNames.length / 2,
     turnCounter: 0,
     createCardsView() {
         const $board = $('.board');
