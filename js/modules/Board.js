@@ -82,8 +82,6 @@ const board = {
             .removeClass("activeCard");
     },
     noCardsLeft() {
-        console.log(game.pairsLeft);
-        console.log(game.pairsLeft === 0);
         return game.pairsLeft === 0;
     },
     getCard(idNumber) {
