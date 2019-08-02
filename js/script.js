@@ -1,3 +1,3 @@
-import card from './modules/Card.js';
+import board from './modules/Board.js';
 
-card.handleClick();
+board.handleClick();
