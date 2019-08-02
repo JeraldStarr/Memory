@@ -1,4 +1,4 @@
-import { cards } from '../data.js';
+import { picturesNames } from '../data.js';
 const table = {
     boardSize: 12,
     turnCounter: 0,
@@ -15,8 +15,8 @@ const table = {
     },
     mixImages() {
         const drawnCards = [];
-        while (cards.length > 0) {
-            const splicedCard = cards.splice(Math.floor(Math.random() * cards.length), 1);
+        while (picturesNames.length > 0) {
+            const splicedCard = picturesNames.splice(Math.floor(Math.random() * picturesNames.length), 1);
             drawnCards.push(splicedCard[0]);
         }
         return drawnCards;
