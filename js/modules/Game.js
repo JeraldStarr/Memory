@@ -1,5 +1,5 @@
 import { picturesNames } from '../data.js';
-const table = {
+const game = {
     boardSize: picturesNames.length,
     pairsLeft: picturesNames.length / 2,
     turnCounter: 0,
@@ -30,4 +30,4 @@ const table = {
     },
 }
 
-export default table;
+export default game;
