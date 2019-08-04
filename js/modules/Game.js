@@ -17,7 +17,8 @@ const game = {
     mixImages() {
         const drawnCards = [];
         while (picturesNames.length > 0) {
-            const splicedCard = picturesNames.splice(Math.floor(Math.random() * picturesNames.length), 1);
+            const splicedCard = picturesNames.splice(Math.floor(Math.random() 
+            * picturesNames.length), 1);
             drawnCards.push(splicedCard[0]);
         }
         return drawnCards;
