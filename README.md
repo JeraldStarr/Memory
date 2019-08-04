@@ -11,3 +11,5 @@ Chromium - version 71.0.3578.98 and higher
 Edge
 # Supported Controllers
 Mouse
+# Use the app
+https://jeraldstarr.github.io/Memory/
