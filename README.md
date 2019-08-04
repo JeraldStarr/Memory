@@ -1,5 +1,6 @@
 # Memory
 Memory is a game to practice memory. User recovers tiles to see picture and his task is to recover second tile with the same picture. If he recoves the same, the recovered tiles are removed from the game, if tiles are not the same then they are covered and user has to try again. Each time when user recover the pairs of tiles, a turn counter is increasing by one.
+![Application's screenshot](img/doc_screen.png)
 # Features
 User can use a mouse to click and recover the tiles
 # Technologies
