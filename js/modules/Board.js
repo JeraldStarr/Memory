@@ -2,7 +2,7 @@ import game from './Game.js';
 import message from './Message.js';
 
 const board = {
-    cards: game.createCardsView(),
+    cards: game.createGameView(),
     lock: false,
     oneCardIsVisible: false,
     visibleCardPictureIndex: null,
@@ -17,22 +17,26 @@ const board = {
                 this.visibleCardPictureIndex = nr;
                 this.lock = false;
             } else {
-                if (this.AreCardsImagesTheSame(nr)) {
-                    setTimeout(() => {
-                        this.hide2Cards(nr, this.visibleCardPictureIndex);
-                        game.decrementPairsNumber();
-                        if (this.noCardsLeft()) {
-                            message.showVictory(game.turnCounter);
-                        };
-                        this.lock = false;
-                    }, 750);
+                if (this.isClickedTheSameCard(nr)) {
+                    this.lock = false;
                 } else {
-                    setTimeout(() => {
-                        this.returnCardPictureDown(nr, this.visibleCardPictureIndex);
-                    }, 1000);
+                    if (this.AreCardsImagesTheSame(nr)) {
+                        setTimeout(() => {
+                            this.hide2Cards(nr, this.visibleCardPictureIndex);
+                            game.decrementPairsNumber();
+                            if (this.noCardsLeft()) {
+                                message.showVictory(game.turnCounter);
+                            };
+                            this.lock = false;
+                        }, 750);
+                    } else {
+                        setTimeout(() => {
+                            this.returnCardPictureDown(nr, this.visibleCardPictureIndex);
+                        }, 1000);
+                    }
+                    this.increaseTurnCounterValue();
+                    this.oneCardIsVisible = false;
                 }
-                this.increaseTurnCounterValue();
-                this.oneCardIsVisible = false;
             }
         }
 
@@ -86,6 +90,9 @@ const board = {
     },
     getCard(idNumber) {
         return `#c${idNumber}`;
+    },
+    isClickedTheSameCard(nr) {
+        return this.visibleCardPictureIndex === nr;
     }
 }
 export default board;

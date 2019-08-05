@@ -3,7 +3,7 @@ const game = {
     boardSize: picturesNames.length,
     pairsLeft: picturesNames.length / 2,
     turnCounter: 0,
-    createCardsView() {
+    createGameView() {
         const $board = $('.board');
         for (let i = 0; i < this.boardSize; i++) {
             $board.append(`<div class="card" id="c${i}"></div>`);
