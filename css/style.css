@@ -94,6 +94,7 @@ body main .board .activeCard {
   border-radius: 4px;
   -webkit-transition: all .3x ease-in-out;
   transition: all .3x ease-in-out;
+  margin: 1px;
   border: 4px solid #E9B64A;
   cursor: default;
   -webkit-filter: brightness(100%);
@@ -138,6 +139,7 @@ body main .board .card {
   border-radius: 4px;
   -webkit-transition: all .3x ease-in-out;
   transition: all .3x ease-in-out;
+  margin: 1px;
   border: 4px solid #51C8b2;
   cursor: pointer;
   -webkit-filter: brightness(70%);
