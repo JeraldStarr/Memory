@@ -183,6 +183,7 @@ body main .board .card:hover {
 }
 
 .score {
+  font-size: 30px;
   -ms-flex-preferred-size: 100px;
       flex-basis: 100px;
   margin-top: 5px;
