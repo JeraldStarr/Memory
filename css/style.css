@@ -56,6 +56,12 @@ body main .board {
   text-align: center;
 }
 
+@media (min-width: 1430px) {
+  body main .board {
+    width: 40vw;
+  }
+}
+
 @media (max-width: 800px) {
   body main .board {
     width: 100vw;
@@ -76,6 +82,13 @@ body main .board .activeCard {
           filter: brightness(100%);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (min-width: 1430px) {
+  body main .board .activeCard {
+    height: 9vw;
+    width: 9vw;
+  }
 }
 
 @media (max-width: 800px) {
@@ -99,6 +112,13 @@ body main .board .card {
           filter: brightness(70%);
   background-repeat: no-repeat;
   background-size: contain;
+}
+
+@media (min-width: 1430px) {
+  body main .board .card {
+    height: 9vw;
+    width: 9vw;
+  }
 }
 
 @media (max-width: 800px) {
