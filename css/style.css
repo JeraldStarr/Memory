@@ -69,6 +69,7 @@ body header {
 }
 
 body main .board {
+  font-size: 0;
   width: 50vw;
   text-align: center;
 }
