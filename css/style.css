@@ -26,6 +26,15 @@ body {
   font-size: 28px;
 }
 
+@media screen and (max-height: 440px) {
+  body {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
 body header {
   font-size: 64px;
   font-weight: 400;
@@ -33,7 +42,15 @@ body header {
   letter-spacing: 5px;
 }
 
-@media (max-width: 800px) {
+@media screen and (max-height: 440px) {
+  body header {
+    -ms-flex-preferred-size: 40vw;
+        flex-basis: 40vw;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 800px) and (min-height: 801px) {
   body header {
     font-size: 40px;
   }
@@ -45,14 +62,14 @@ body header {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-height: 801px) {
   body main {
     width: 100vw;
   }
 }
 
 body main .board {
-  width: 55vw;
+  width: 50vw;
   text-align: center;
 }
 
@@ -62,15 +79,15 @@ body main .board {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-height: 801px) {
   body main .board {
     width: 100vw;
   }
 }
 
 body main .board .activeCard {
-  width: 13vw;
-  height: 13vw;
+  width: 11vw;
+  height: 11vw;
   display: inline-block;
   background-image: url("../img/card.png");
   border-radius: 4px;
@@ -84,6 +101,20 @@ body main .board .activeCard {
   background-size: contain;
 }
 
+@media screen and (max-height: 440px) {
+  body main .board .activeCard {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
+@media screen and (max-height: 440px) and (max-width: 800px) {
+  body main .board .activeCard {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
 @media (min-width: 1430px) {
   body main .board .activeCard {
     height: 9vw;
@@ -91,7 +122,7 @@ body main .board .activeCard {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-height: 801px) {
   body main .board .activeCard {
     height: 22vw;
     width: 22vw;
@@ -99,8 +130,8 @@ body main .board .activeCard {
 }
 
 body main .board .card {
-  width: 13vw;
-  height: 13vw;
+  width: 11vw;
+  height: 11vw;
   display: inline-block;
   background-image: url("../img/card.png");
   border-radius: 4px;
@@ -114,6 +145,20 @@ body main .board .card {
   background-size: contain;
 }
 
+@media screen and (max-height: 440px) {
+  body main .board .card {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
+@media screen and (max-height: 440px) and (max-width: 800px) {
+  body main .board .card {
+    height: 12vw;
+    width: 12vw;
+  }
+}
+
 @media (min-width: 1430px) {
   body main .board .card {
     height: 9vw;
@@ -121,7 +166,7 @@ body main .board .card {
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 800px) and (min-height: 801px) {
   body main .board .card {
     height: 22vw;
     width: 22vw;

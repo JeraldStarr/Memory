@@ -5,9 +5,15 @@
     background-image: url("../img/card.png")
     border-radius: 4px
     transition: all .3x ease-in-out
+    @media screen and (max-height: 440px)
+        height: 12vw
+        width: 12vw
+    @media screen and (max-height: 440px) and (max-width: 800px)
+        height: 12vw
+        width: 12vw
     @media (min-width: 1430px)
         height: 9vw
         width: 9vw
-    @media (max-width: 800px) 
+    @media (max-width: 800px) and (min-height: 801px)
         height: 22vw
         width: 22vw

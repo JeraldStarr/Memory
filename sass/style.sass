@@ -15,24 +15,30 @@ body
     color: $accent
     font-family: 'Lobster', sans-serif
     font-size: 28px
+    @media screen and (max-height: 440px)
+        flex-direction: row
+
     header
         font-size: 64px
         font-weight: 400
         text-align: $position
         letter-spacing: 5px
-        @media (max-width: 800px) 
+        @media screen and (max-height: 440px)
+            flex-basis: 40vw
+            font-size: 30px
+        @media (max-width: 800px) and (min-height: 801px)
             font-size: 40px
         @media (max-width: 500px)
             font-size: 28px 
     main 
-        @media (max-width: 800px) 
+        @media (max-width: 800px) and (min-height: 801px)
             width: 100vw
         .board 
-            width: 55vw
+            width: 50vw
             text-align: $position
             @media (min-width: 1430px)
                 width: 40vw
-            @media (max-width: 800px) 
+            @media (max-width: 800px) and (min-height: 801px)
                 width: $allAvailableWidth
             .activeCard
                 +cardsStyle
