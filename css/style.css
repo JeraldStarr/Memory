@@ -189,4 +189,14 @@ body main .board .card:hover {
   margin-top: 5px;
   letter-spacing: 2px;
 }
+
+h2 {
+  font-size: 70px;
+}
+
+@media (max-width: 850px) {
+  h2 {
+    font-size: 36px;
+  }
+}
 /*# sourceMappingURL=style.css.map */
