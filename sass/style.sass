@@ -38,9 +38,11 @@ body
             width: 50vw
             text-align: $position
             @media (min-width: 1430px)
-                width: 40vw
+                width: 35vw
             @media (max-width: 800px) and (min-height: 801px)
                 width: $allAvailableWidth
+            @media screen and (max-width: 440px)
+                width: 100vw
             .activeCard
                 +cardsStyle
                 border: $borderBrightColour

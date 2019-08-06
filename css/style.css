@@ -76,11 +76,17 @@ body main .board {
 
 @media (min-width: 1430px) {
   body main .board {
-    width: 40vw;
+    width: 35vw;
   }
 }
 
 @media (max-width: 800px) and (min-height: 801px) {
+  body main .board {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 440px) {
   body main .board {
     width: 100vw;
   }
@@ -119,8 +125,8 @@ body main .board .activeCard {
 
 @media (min-width: 1430px) {
   body main .board .activeCard {
-    height: 9vw;
-    width: 9vw;
+    height: 7vw;
+    width: 7vw;
   }
 }
 
@@ -128,6 +134,13 @@ body main .board .activeCard {
   body main .board .activeCard {
     height: 22vw;
     width: 22vw;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  body main .board .activeCard {
+    height: 20vw;
+    width: 20vw;
   }
 }
 
@@ -164,8 +177,8 @@ body main .board .card {
 
 @media (min-width: 1430px) {
   body main .board .card {
-    height: 9vw;
-    width: 9vw;
+    height: 7vw;
+    width: 7vw;
   }
 }
 
@@ -173,6 +186,13 @@ body main .board .card {
   body main .board .card {
     height: 22vw;
     width: 22vw;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  body main .board .card {
+    height: 20vw;
+    width: 20vw;
   }
 }
 
